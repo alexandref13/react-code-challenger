@@ -8,9 +8,10 @@ import { TextFieldComponent } from "../src/components/TextField";
 import { AlertError } from "../src/components/AlertError";
 import { ConfigDataProps, DataProps } from "../src/interfaces";
 import { fetcher } from "../src/helper/fetcher";
-import { Alert, AlertTitle, Button } from "@mui/material";
 import { useState } from "react";
 import { AlertSuccess } from "../src/components/AlertSuccess";
+
+import { Button } from "@mui/material";
 
 const Home = ({ data: valueData, dateSaved }: DataProps) => {
   const [isClicked, setIsClicked] = useState(false);
@@ -35,7 +36,10 @@ const Home = ({ data: valueData, dateSaved }: DataProps) => {
         />
       ) : null}
 
-      <h1 className="header">{config.data?.formName}</h1>
+      <div className="header">
+        <h1>{config.data?.formName}</h1>
+        <p>Created at: {dateSaved}</p>
+      </div>
 
       <div className="content">
         {config.data?.fields?.map((field) => {
